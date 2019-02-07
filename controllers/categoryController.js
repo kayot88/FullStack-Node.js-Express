@@ -1,5 +1,7 @@
 exports.getAll = (req, res) => {
-
+res.json({
+  message: 'hello'
+});
 };
 exports.getById = (req, res) => {
 
