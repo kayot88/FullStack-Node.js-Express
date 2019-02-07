@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const keys = require('../config/keys');
+const errorHandler = require('../utils/errorHandler');
 
 
 exports.login = async (req, res) => {
@@ -44,7 +45,7 @@ exports.register = async (req, res) => {
         password: bcrypt.hashSync(password, salt)
       }).save().then(console.log(`Adedd new`))
     } catch (e) {
-      console.log(e);
+      errorHandler(res, e)
     }
   }
 };
